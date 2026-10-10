@@ -1,0 +1,186 @@
+# Copyright (C) 2026 ${GITHUB_USER}
+# This file is distributed under the same license as the openmediavault-webtop package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-webtop 8.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-08 12:00+0800\n"
+"PO-Revision-Date: 2026-10-08 12:00+0800\n"
+"Last-Translator: ${GITHUB_USER}\n"
+"Language-Team: Chinese (Simplified)\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Webtop"
+msgstr "Webtop"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "Updated Webtop settings."
+msgstr "Webtop 设置已更新。"
+
+msgid "Running"
+msgstr "运行中"
+
+msgid "Stopped"
+msgstr "已停止"
+
+msgid "Not installed"
+msgstr "未安装"
+
+msgid "Webtop is a browser-accessible full Linux desktop (lscr.io/linuxserver/webtop image). The stack is created in the Compose plugin (Services -> Compose -> Files) where it can also be inspected or edited; configure the Compose plugin shared folder first (Services -> Compose -> Settings). Save the settings, click Apply, then use the buttons below to deploy and manage the stack. HTTPS is required for the full desktop experience (clipboard, audio and webcam need a secure context); the browser will show a self-signed certificate warning. The container grants passwordless sudo inside, so never expose it directly to the internet."
+msgstr "Webtop 是一个可通过浏览器访问的完整 Linux 桌面（lscr.io/linuxserver/webtop 镜像）。栈会在 Compose 插件中创建（服务 → Compose → 文件），也可在那里查看或编辑；请先配置 Compose 插件的共享文件夹（服务 → Compose → 设置）。保存设置并点「应用」后，用下方按钮部署和管理栈。完整的桌面体验需要 HTTPS（剪贴板、音频和摄像头需要安全上下文）；浏览器会提示自签名证书警告。容器内部拥有免密 sudo 权限，切勿将其直接暴露到公网。"
+
+msgid "Status"
+msgstr "状态"
+
+msgid "Service status"
+msgstr "服务状态"
+
+msgid "Stack file (Compose plugin)"
+msgstr "栈文件（Compose 插件）"
+
+msgid "Stack file location. The stack files are rendered by the Compose plugin into its shared folder and are managed there, so this path cannot be changed here. Set the folder in Services -> Compose -> Settings."
+msgstr "栈文件位置。栈文件由 Compose 插件渲染到其共享文件夹下并在那里管理，因此此路径不能在此更改。请在 服务 -> Compose -> 设置 中配置该文件夹。"
+
+msgid "Service"
+msgstr "服务"
+
+msgid "Enabled"
+msgstr "启用"
+
+msgid "Automatically manage the stack from OMV. On Apply the stack is (re)created; disabling the service removes the container on Apply (the config and data folders are kept)."
+msgstr "由 OMV 自动管理栈：点「应用」时创建/重建栈。停用服务会在「应用」时移除容器（配置与数据文件夹保留）。"
+
+msgid "Version"
+msgstr "版本"
+
+msgid "Webtop image tag"
+msgstr "Webtop 镜像标签"
+
+msgid "Docker image tag for the lscr.io/linuxserver/webtop image (e.g. latest or a specific tag such as ubuntu-kde). Prefer pinning a specific version; upgrade with the Upgrade button or change the tag here and Apply. The image is pulled from lscr.io, which must be reachable."
+msgstr "lscr.io/linuxserver/webtop 镜像的 Docker 标签（如 latest 或具体标签如 ubuntu-kde）。建议固定具体版本；升级请用「升级」按钮，或改标签后点「应用」。镜像从 lscr.io 拉取，该地址必须可达。"
+
+msgid "Storage"
+msgstr "存储"
+
+msgid "Config shared folder"
+msgstr "配置共享文件夹"
+
+msgid "Shared folder mapped to /config inside the container. The whole desktop (home directory, applications and all settings) is stored here. Put it on the data array. Required before the service can start."
+msgstr "映射到容器内 /config 的共享文件夹。整个桌面（家目录、应用与全部设置）都存放在这里。请放在数据阵列上。服务启动前必须配置。"
+
+msgid "Data shared folder"
+msgstr "数据共享文件夹"
+
+msgid "Optional shared folder mapped read-write to /nas inside the container so the desktop can reach your files. Leave empty when not needed."
+msgstr "可选的共享文件夹，以读写方式映射到容器内 /nas，便于桌面访问你的文件。不需要时留空。"
+
+msgid "Network"
+msgstr "网络"
+
+msgid "HTTP port"
+msgstr "HTTP 端口"
+
+msgid "Host port for the plain HTTP web desktop interface (container port is fixed at 3000). HTTPS is recommended for full functionality."
+msgstr "纯 HTTP 网页桌面界面的宿主端口（容器内端口固定为 3000）。为获得完整功能建议使用 HTTPS。"
+
+msgid "HTTPS port"
+msgstr "HTTPS 端口"
+
+msgid "Host port for the HTTPS web desktop interface (container port is fixed at 3001). The container serves a self-signed certificate, so the browser shows a warning."
+msgstr "HTTPS 网页桌面界面的宿主端口（容器内端口固定为 3001）。容器使用自签名证书，浏览器会提示警告。"
+
+msgid "Timezone"
+msgstr "时区"
+
+msgid "Timezone used inside the container, e.g. Asia/Shanghai."
+msgstr "容器内使用的时区，如 Asia/Shanghai。"
+
+msgid "Access"
+msgstr "访问"
+
+msgid "Web login user"
+msgstr "网页登录用户名"
+
+msgid "User name for the web login (CUSTOM_USER). The default 'abc' user is built in; setting another name creates a regular user inside the container."
+msgstr "网页登录用户名（CUSTOM_USER）。内置默认用户 'abc'；填写其他名称会在容器内创建一个普通用户。"
+
+msgid "Web login password"
+msgstr "网页登录密码"
+
+msgid "Password for the web login. Leave empty only when the desktop is reachable from trusted networks only; otherwise set a strong password."
+msgstr "网页登录密码。仅当桌面只在可信网络内可达时才留空，否则请设置强密码。"
+
+msgid "Page title"
+msgstr "页面标题"
+
+msgid "Title shown in the browser tab and in the desktop (TITLE)."
+msgstr "显示在浏览器标签页和桌面上的标题（TITLE）。"
+
+msgid "Advanced"
+msgstr "高级"
+
+msgid "PUID"
+msgstr "PUID"
+
+msgid "User ID the desktop runs as inside the container; files it creates in the shared folders are owned by this ID. On OMV the administrator account is usually 1000."
+msgstr "容器内桌面运行所使用的用户 ID；它在共享文件夹里创建的文件属主为该 ID。OMV 上的管理员账号通常为 1000。"
+
+msgid "PGID"
+msgstr "PGID"
+
+msgid "Group ID the desktop runs as inside the container. It must be a group that owns the shared folders - on OMV that is the 'users' group (100), otherwise the desktop cannot write to the data folder."
+msgstr "容器内桌面运行所使用的用户组 ID。该组必须对共享文件夹有写权限——在 OMV 上即 users 组（100），否则桌面无法写入数据文件夹。"
+
+msgid "Start"
+msgstr "启动"
+
+msgid "Stop"
+msgstr "停止"
+
+msgid "Restart"
+msgstr "重启"
+
+msgid "Upgrade"
+msgstr "升级"
+
+msgid "View logs"
+msgstr "查看日志"
+
+msgid "View compose file"
+msgstr "查看 Compose 文件"
+
+msgid "Open Webtop"
+msgstr "打开 Webtop"
+
+msgid "Do you really want to stop the Webtop stack? The container is removed; the config and data folders and the settings are kept."
+msgstr "确实要停止 Webtop 栈吗？容器将被移除；配置与数据文件夹及设置保留。"
+
+msgid "Do you really want to restart the Webtop stack?"
+msgstr "确实要重启 Webtop 栈吗？"
+
+msgid "Do you really want to upgrade the Webtop stack? A newer image is pulled and the stack is recreated. Read the upstream release notes before major upgrades."
+msgstr "确实要升级 Webtop 栈吗？将拉取新镜像并重建栈。大版本升级前请先阅读上游发布说明。"
+
+msgid "Webtop deploy/start output"
+msgstr "Webtop 部署/启动输出"
+
+msgid "Webtop stop output"
+msgstr "Webtop 停止输出"
+
+msgid "Webtop restart output"
+msgstr "Webtop 重启输出"
+
+msgid "Webtop upgrade output"
+msgstr "Webtop 升级输出"
+
+msgid "Webtop logs"
+msgstr "Webtop 日志"
+
+msgid "Rendered docker-compose.yml"
+msgstr "渲染出的 docker-compose.yml"

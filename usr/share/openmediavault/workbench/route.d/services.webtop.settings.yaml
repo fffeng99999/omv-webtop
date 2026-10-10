@@ -1,0 +1,8 @@
+version: "1.0"
+type: route
+data:
+  url: "/services/webtop/settings"
+  title: _("Settings")
+  editing: true
+  notificationTitle: _("Updated Webtop settings.")
+  component: omv-services-webtop-settings-form-page

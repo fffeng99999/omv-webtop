@@ -1,0 +1,11 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.webtop"
+  text: _("Webtop")
+  position: 30
+  icon: "mdi:desktop-classic"
+  url: "/services/webtop"
+  permissions:
+    role:
+    - admin

@@ -1,0 +1,5 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-webtop-navigation-page
+  type: navigationPage

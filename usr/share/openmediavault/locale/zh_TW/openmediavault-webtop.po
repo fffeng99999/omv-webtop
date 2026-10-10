@@ -1,0 +1,186 @@
+# Copyright (C) 2026 ${GITHUB_USER}
+# This file is distributed under the same license as the openmediavault-webtop package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-webtop 8.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-08 12:00+0800\n"
+"PO-Revision-Date: 2026-10-08 12:00+0800\n"
+"Last-Translator: ${GITHUB_USER}\n"
+"Language-Team: Chinese (Traditional)\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Webtop"
+msgstr "Webtop"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Updated Webtop settings."
+msgstr "Webtop 設定已更新。"
+
+msgid "Running"
+msgstr "執行中"
+
+msgid "Stopped"
+msgstr "已停止"
+
+msgid "Not installed"
+msgstr "未安裝"
+
+msgid "Webtop is a browser-accessible full Linux desktop (lscr.io/linuxserver/webtop image). The stack is created in the Compose plugin (Services -> Compose -> Files) where it can also be inspected or edited; configure the Compose plugin shared folder first (Services -> Compose -> Settings). Save the settings, click Apply, then use the buttons below to deploy and manage the stack. HTTPS is required for the full desktop experience (clipboard, audio and webcam need a secure context); the browser will show a self-signed certificate warning. The container grants passwordless sudo inside, so never expose it directly to the internet."
+msgstr "Webtop 是一個可透過瀏覽器存取的完整 Linux 桌面（lscr.io/linuxserver/webtop 映像）。堆疊會建立在 Compose 外掛中（服務 → Compose → 檔案），也可在那裡檢視或編輯；請先設定 Compose 外掛的共享資料夾（服務 → Compose → 設定）。儲存設定並點「套用」後，用下方按鈕部署與管理堆疊。完整的桌面體驗需要 HTTPS（剪貼簿、音訊與網路攝影機需要安全脈絡）；瀏覽器會顯示自簽憑證警告。容器內部擁有免密 sudo 權限，切勿將其直接暴露到網際網路。"
+
+msgid "Status"
+msgstr "狀態"
+
+msgid "Service status"
+msgstr "服務狀態"
+
+msgid "Stack file (Compose plugin)"
+msgstr "堆疊檔案（Compose 外掛）"
+
+msgid "Stack file location. The stack files are rendered by the Compose plugin into its shared folder and are managed there, so this path cannot be changed here. Set the folder in Services -> Compose -> Settings."
+msgstr "堆疊檔案位置。堆疊檔案由 Compose 外掛渲染至其共享資料夾下並於該處管理，因此此路徑無法在此變更。請在 服務 -> Compose -> 設定 中設定該資料夾。"
+
+msgid "Service"
+msgstr "服務"
+
+msgid "Enabled"
+msgstr "啟用"
+
+msgid "Automatically manage the stack from OMV. On Apply the stack is (re)created; disabling the service removes the container on Apply (the config and data folders are kept)."
+msgstr "由 OMV 自動管理堆疊：點「套用」時建立/重建堆疊。停用服務會在「套用」時移除容器（設定與資料資料夾保留）。"
+
+msgid "Version"
+msgstr "版本"
+
+msgid "Webtop image tag"
+msgstr "Webtop 映像標籤"
+
+msgid "Docker image tag for the lscr.io/linuxserver/webtop image (e.g. latest or a specific tag such as ubuntu-kde). Prefer pinning a specific version; upgrade with the Upgrade button or change the tag here and Apply. The image is pulled from lscr.io, which must be reachable."
+msgstr "lscr.io/linuxserver/webtop 映像的 Docker 標籤（如 latest 或具體標籤如 ubuntu-kde）。建議固定具體版本；升級請用「升級」按鈕，或改標籤後點「套用」。映像自 lscr.io 拉取，該位址必須可達。"
+
+msgid "Storage"
+msgstr "儲存"
+
+msgid "Config shared folder"
+msgstr "設定共享資料夾"
+
+msgid "Shared folder mapped to /config inside the container. The whole desktop (home directory, applications and all settings) is stored here. Put it on the data array. Required before the service can start."
+msgstr "對應到容器內 /config 的共享資料夾。整個桌面（家目錄、應用程式與全部設定）都存放在這裡。請放在資料陣列上。服務啟動前必須設定。"
+
+msgid "Data shared folder"
+msgstr "資料共享資料夾"
+
+msgid "Optional shared folder mapped read-write to /nas inside the container so the desktop can reach your files. Leave empty when not needed."
+msgstr "選用的共享資料夾，以讀寫方式對應到容器內 /nas，方便桌面存取你的檔案。不需要時留空。"
+
+msgid "Network"
+msgstr "網路"
+
+msgid "HTTP port"
+msgstr "HTTP 連接埠"
+
+msgid "Host port for the plain HTTP web desktop interface (container port is fixed at 3000). HTTPS is recommended for full functionality."
+msgstr "純 HTTP 網頁桌面介面的主機連接埠（容器內連接埠固定為 3000）。為獲得完整功能建議使用 HTTPS。"
+
+msgid "HTTPS port"
+msgstr "HTTPS 連接埠"
+
+msgid "Host port for the HTTPS web desktop interface (container port is fixed at 3001). The container serves a self-signed certificate, so the browser shows a warning."
+msgstr "HTTPS 網頁桌面介面的主機連接埠（容器內連接埠固定為 3001）。容器使用自簽憑證，瀏覽器會顯示警告。"
+
+msgid "Timezone"
+msgstr "時區"
+
+msgid "Timezone used inside the container, e.g. Asia/Shanghai."
+msgstr "容器內使用的時區，如 Asia/Shanghai。"
+
+msgid "Access"
+msgstr "存取"
+
+msgid "Web login user"
+msgstr "網頁登入使用者名稱"
+
+msgid "User name for the web login (CUSTOM_USER). The default 'abc' user is built in; setting another name creates a regular user inside the container."
+msgstr "網頁登入使用者名稱（CUSTOM_USER）。內建預設使用者 'abc'；填寫其他名稱會在容器內建立一個一般使用者。"
+
+msgid "Web login password"
+msgstr "網頁登入密碼"
+
+msgid "Password for the web login. Leave empty only when the desktop is reachable from trusted networks only; otherwise set a strong password."
+msgstr "網頁登入密碼。僅當桌面只在可信任網路內可達時才留空，否則請設定強密碼。"
+
+msgid "Page title"
+msgstr "頁面標題"
+
+msgid "Title shown in the browser tab and in the desktop (TITLE)."
+msgstr "顯示在瀏覽器分頁與桌面上的標題（TITLE）。"
+
+msgid "Advanced"
+msgstr "進階"
+
+msgid "PUID"
+msgstr "PUID"
+
+msgid "User ID the desktop runs as inside the container; files it creates in the shared folders are owned by this ID. On OMV the administrator account is usually 1000."
+msgstr "容器內桌面執行所使用的使用者 ID；它在共享資料夾裡建立的檔案擁有者為該 ID。OMV 上的管理員帳號通常為 1000。"
+
+msgid "PGID"
+msgstr "PGID"
+
+msgid "Group ID the desktop runs as inside the container. It must be a group that owns the shared folders - on OMV that is the 'users' group (100), otherwise the desktop cannot write to the data folder."
+msgstr "容器內桌面執行所使用的群組 ID。該群組必須對共享資料夾有寫入權限——在 OMV 上即 users 群組（100），否則桌面無法寫入資料資料夾。"
+
+msgid "Start"
+msgstr "啟動"
+
+msgid "Stop"
+msgstr "停止"
+
+msgid "Restart"
+msgstr "重新啟動"
+
+msgid "Upgrade"
+msgstr "升級"
+
+msgid "View logs"
+msgstr "檢視日誌"
+
+msgid "View compose file"
+msgstr "檢視 Compose 檔案"
+
+msgid "Open Webtop"
+msgstr "開啟 Webtop"
+
+msgid "Do you really want to stop the Webtop stack? The container is removed; the config and data folders and the settings are kept."
+msgstr "確定要停止 Webtop 堆疊嗎？容器將被移除；設定與資料資料夾及設定保留。"
+
+msgid "Do you really want to restart the Webtop stack?"
+msgstr "確定要重新啟動 Webtop 堆疊嗎？"
+
+msgid "Do you really want to upgrade the Webtop stack? A newer image is pulled and the stack is recreated. Read the upstream release notes before major upgrades."
+msgstr "確定要升級 Webtop 堆疊嗎？將拉取新映像並重建堆疊。大版本升級前請先閱讀上游發布說明。"
+
+msgid "Webtop deploy/start output"
+msgstr "Webtop 部署/啟動輸出"
+
+msgid "Webtop stop output"
+msgstr "Webtop 停止輸出"
+
+msgid "Webtop restart output"
+msgstr "Webtop 重新啟動輸出"
+
+msgid "Webtop upgrade output"
+msgstr "Webtop 升級輸出"
+
+msgid "Webtop logs"
+msgstr "Webtop 日誌"
+
+msgid "Rendered docker-compose.yml"
+msgstr "渲染出的 docker-compose.yml"

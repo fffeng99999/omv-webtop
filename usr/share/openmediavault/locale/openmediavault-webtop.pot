@@ -1,0 +1,187 @@
+# Translation template for openmediavault-webtop.
+# Copyright (C) 2026 ${GITHUB_USER}
+# This file is distributed under the same license as the openmediavault-webtop package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-webtop 8.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-08 12:00+0800\n"
+"PO-Revision-Date: 2026-10-08 12:00+0800\n"
+"Last-Translator: ${GITHUB_USER}\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Webtop"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Updated Webtop settings."
+msgstr ""
+
+msgid "Running"
+msgstr ""
+
+msgid "Stopped"
+msgstr ""
+
+msgid "Not installed"
+msgstr ""
+
+msgid "Webtop is a browser-accessible full Linux desktop (lscr.io/linuxserver/webtop image). The stack is created in the Compose plugin (Services -> Compose -> Files) where it can also be inspected or edited; configure the Compose plugin shared folder first (Services -> Compose -> Settings). Save the settings, click Apply, then use the buttons below to deploy and manage the stack. HTTPS is required for the full desktop experience (clipboard, audio and webcam need a secure context); the browser will show a self-signed certificate warning. The container grants passwordless sudo inside, so never expose it directly to the internet."
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "Service status"
+msgstr ""
+
+msgid "Stack file (Compose plugin)"
+msgstr ""
+
+msgid "Stack file location. The stack files are rendered by the Compose plugin into its shared folder and are managed there, so this path cannot be changed here. Set the folder in Services -> Compose -> Settings."
+msgstr ""
+
+msgid "Service"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Automatically manage the stack from OMV. On Apply the stack is (re)created; disabling the service removes the container on Apply (the config and data folders are kept)."
+msgstr ""
+
+msgid "Version"
+msgstr ""
+
+msgid "Webtop image tag"
+msgstr ""
+
+msgid "Docker image tag for the lscr.io/linuxserver/webtop image (e.g. latest or a specific tag such as ubuntu-kde). Prefer pinning a specific version; upgrade with the Upgrade button or change the tag here and Apply. The image is pulled from lscr.io, which must be reachable."
+msgstr ""
+
+msgid "Storage"
+msgstr ""
+
+msgid "Config shared folder"
+msgstr ""
+
+msgid "Shared folder mapped to /config inside the container. The whole desktop (home directory, applications and all settings) is stored here. Put it on the data array. Required before the service can start."
+msgstr ""
+
+msgid "Data shared folder"
+msgstr ""
+
+msgid "Optional shared folder mapped read-write to /nas inside the container so the desktop can reach your files. Leave empty when not needed."
+msgstr ""
+
+msgid "Network"
+msgstr ""
+
+msgid "HTTP port"
+msgstr ""
+
+msgid "Host port for the plain HTTP web desktop interface (container port is fixed at 3000). HTTPS is recommended for full functionality."
+msgstr ""
+
+msgid "HTTPS port"
+msgstr ""
+
+msgid "Host port for the HTTPS web desktop interface (container port is fixed at 3001). The container serves a self-signed certificate, so the browser shows a warning."
+msgstr ""
+
+msgid "Timezone"
+msgstr ""
+
+msgid "Timezone used inside the container, e.g. Asia/Shanghai."
+msgstr ""
+
+msgid "Access"
+msgstr ""
+
+msgid "Web login user"
+msgstr ""
+
+msgid "User name for the web login (CUSTOM_USER). The default 'abc' user is built in; setting another name creates a regular user inside the container."
+msgstr ""
+
+msgid "Web login password"
+msgstr ""
+
+msgid "Password for the web login. Leave empty only when the desktop is reachable from trusted networks only; otherwise set a strong password."
+msgstr ""
+
+msgid "Page title"
+msgstr ""
+
+msgid "Title shown in the browser tab and in the desktop (TITLE)."
+msgstr ""
+
+msgid "Advanced"
+msgstr ""
+
+msgid "PUID"
+msgstr ""
+
+msgid "User ID the desktop runs as inside the container; files it creates in the shared folders are owned by this ID. On OMV the administrator account is usually 1000."
+msgstr ""
+
+msgid "PGID"
+msgstr ""
+
+msgid "Group ID the desktop runs as inside the container. It must be a group that owns the shared folders - on OMV that is the 'users' group (100), otherwise the desktop cannot write to the data folder."
+msgstr ""
+
+msgid "Start"
+msgstr ""
+
+msgid "Stop"
+msgstr ""
+
+msgid "Restart"
+msgstr ""
+
+msgid "Upgrade"
+msgstr ""
+
+msgid "View logs"
+msgstr ""
+
+msgid "View compose file"
+msgstr ""
+
+msgid "Open Webtop"
+msgstr ""
+
+msgid "Do you really want to stop the Webtop stack? The container is removed; the config and data folders and the settings are kept."
+msgstr ""
+
+msgid "Do you really want to restart the Webtop stack?"
+msgstr ""
+
+msgid "Do you really want to upgrade the Webtop stack? A newer image is pulled and the stack is recreated. Read the upstream release notes before major upgrades."
+msgstr ""
+
+msgid "Webtop deploy/start output"
+msgstr ""
+
+msgid "Webtop stop output"
+msgstr ""
+
+msgid "Webtop restart output"
+msgstr ""
+
+msgid "Webtop upgrade output"
+msgstr ""
+
+msgid "Webtop logs"
+msgstr ""
+
+msgid "Rendered docker-compose.yml"
+msgstr ""

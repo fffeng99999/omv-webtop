@@ -1,0 +1,224 @@
+version: "1.0"
+type: component
+data:
+  name: omv-services-webtop-settings-form-page
+  type: formPage
+  config:
+    request:
+      service: Webtop
+      get:
+        method: get
+        transform:
+          statusText: "{{ statusText | translate }}"
+      post:
+        method: set
+    hints:
+      - type: info
+        text: _("Webtop is a browser-accessible full Linux desktop (lscr.io/linuxserver/webtop image). The stack is created in the Compose plugin (Services -> Compose -> Files) where it can also be inspected or edited; configure the Compose plugin shared folder first (Services -> Compose -> Settings). Save the settings, click Apply, then use the buttons below to deploy and manage the stack. HTTPS is required for the full desktop experience (clipboard, audio and webcam need a secure context); the browser will show a self-signed certificate warning. The container grants passwordless sudo inside, so never expose it directly to the internet.")
+        dismissible: true
+        stateId: 1f0a7c62-8b4d-4e93-a15c-2d7e9f304c88
+    fields:
+      - type: divider
+        title: _("Status")
+      - type: textInput
+        name: statusText
+        label: _("Service status")
+        submitValue: false
+        readonly: true
+      - type: checkbox
+        name: running
+        label: _("Running")
+        submitValue: false
+        readonly: true
+      - type: textInput
+        name: composeFile
+        label: _("Stack file (Compose plugin)")
+        hint: _("Stack file location. The stack files are rendered by the Compose plugin into its shared folder and are managed there, so this path cannot be changed here. Set the folder in Services -> Compose -> Settings.")
+        submitValue: false
+        readonly: true
+
+      - type: divider
+        title: _("Service")
+      - type: checkbox
+        name: enable
+        label: _("Enabled")
+        hint: _("Automatically manage the stack from OMV. On Apply the stack is (re)created; disabling the service removes the container on Apply (the config and data folders are kept).")
+        value: false
+
+      - type: divider
+        title: _("Version")
+      - type: textInput
+        name: version
+        label: _("Webtop image tag")
+        hint: _("Docker image tag for the lscr.io/linuxserver/webtop image (e.g. latest or a specific tag such as ubuntu-kde). Prefer pinning a specific version; upgrade with the Upgrade button or change the tag here and Apply. The image is pulled from lscr.io, which must be reachable.")
+        value: "latest"
+        validators:
+          required: true
+
+      - type: divider
+        title: _("Storage")
+      - type: sharedFolderSelect
+        name: configRef
+        label: _("Config shared folder")
+        hint: _("Shared folder mapped to /config inside the container. The whole desktop (home directory, applications and all settings) is stored here. Put it on the data array. Required before the service can start.")
+        hasEmptyOption: true
+        value: ""
+        validators:
+          requiredIf:
+            operator: truthy
+            arg0: enable
+      - type: sharedFolderSelect
+        name: sourceRef
+        label: _("Data shared folder")
+        hint: _("Optional shared folder mapped read-write to /nas inside the container so the desktop can reach your files. Leave empty when not needed.")
+        hasEmptyOption: true
+        value: ""
+
+      - type: divider
+        title: _("Network")
+      - type: numberInput
+        name: httpPort
+        label: _("HTTP port")
+        hint: _("Host port for the plain HTTP web desktop interface (container port is fixed at 3000). HTTPS is recommended for full functionality.")
+        value: 3000
+        validators:
+          min: 1
+          max: 65535
+          patternType: port
+      - type: numberInput
+        name: httpsPort
+        label: _("HTTPS port")
+        hint: _("Host port for the HTTPS web desktop interface (container port is fixed at 3001). The container serves a self-signed certificate, so the browser shows a warning.")
+        value: 3001
+        validators:
+          min: 1
+          max: 65535
+          patternType: port
+      - type: textInput
+        name: timeZone
+        label: _("Timezone")
+        hint: _("Timezone used inside the container, e.g. Asia/Shanghai.")
+        value: "Etc/UTC"
+
+      - type: divider
+        title: _("Access")
+      - type: textInput
+        name: customUser
+        label: _("Web login user")
+        hint: _("User name for the web login (CUSTOM_USER). The default 'abc' user is built in; setting another name creates a regular user inside the container.")
+        value: "admin"
+        validators:
+          required: true
+      - type: passwordInput
+        name: password
+        label: _("Web login password")
+        hint: _("Password for the web login. Leave empty only when the desktop is reachable from trusted networks only; otherwise set a strong password.")
+        value: ""
+        autocomplete: "new-password"
+        validators:
+          requiredIf:
+            operator: truthy
+            arg0: enable
+      - type: textInput
+        name: title
+        label: _("Page title")
+        hint: _("Title shown in the browser tab and in the desktop (TITLE).")
+        value: "Webtop"
+
+      - type: divider
+        title: _("Advanced")
+      - type: numberInput
+        name: puid
+        label: _("PUID")
+        hint: _("User ID the desktop runs as inside the container; files it creates in the shared folders are owned by this ID. On OMV the administrator account is usually 1000.")
+        value: 1000
+      - type: numberInput
+        name: pgid
+        label: _("PGID")
+        hint: _("Group ID the desktop runs as inside the container. It must be a group that owns the shared folders - on OMV that is the 'users' group (100), otherwise the desktop cannot write to the data folder.")
+        value: 100
+    buttons:
+      - text: _("Start")
+        execute:
+          type: taskDialog
+          taskDialog:
+            config:
+              title: _("Webtop deploy/start output")
+              width: "70%"
+              startOnInit: true
+              request:
+                service: Webtop
+                method: start
+      - text: _("Stop")
+        confirmationDialogConfig:
+          template: confirmation
+          message: _("Do you really want to stop the Webtop stack? The container is removed; the config and data folders and the settings are kept.")
+        execute:
+          type: taskDialog
+          taskDialog:
+            config:
+              title: _("Webtop stop output")
+              width: "70%"
+              startOnInit: true
+              request:
+                service: Webtop
+                method: stop
+      - text: _("Restart")
+        confirmationDialogConfig:
+          template: confirmation
+          message: _("Do you really want to restart the Webtop stack?")
+        execute:
+          type: taskDialog
+          taskDialog:
+            config:
+              title: _("Webtop restart output")
+              width: "70%"
+              startOnInit: true
+              request:
+                service: Webtop
+                method: restart
+      - text: _("Upgrade")
+        confirmationDialogConfig:
+          template: confirmation
+          message: _("Do you really want to upgrade the Webtop stack? A newer image is pulled and the stack is recreated. Read the upstream release notes before major upgrades.")
+        execute:
+          type: taskDialog
+          taskDialog:
+            config:
+              title: _("Webtop upgrade output")
+              width: "70%"
+              startOnInit: true
+              request:
+                service: Webtop
+                method: upgrade
+      - text: _("View logs")
+        execute:
+          type: taskDialog
+          taskDialog:
+            config:
+              title: _("Webtop logs")
+              width: "70%"
+              startOnInit: true
+              request:
+                service: Webtop
+                method: getLog
+      - text: _("View compose file")
+        execute:
+          type: taskDialog
+          taskDialog:
+            config:
+              title: _("Rendered docker-compose.yml")
+              width: "70%"
+              startOnInit: true
+              request:
+                service: Webtop
+                method: getShowConfig
+      - text: _("Open Webtop")
+        execute:
+          type: url
+          url: "/externalRedirect/{{ ['https://', location() | get('hostname'), ':', httpsPort] | join | encodeuricomponent }}"
+      - template: cancel
+        execute:
+          type: url
+          url: "/services/webtop"
+      - template: submit

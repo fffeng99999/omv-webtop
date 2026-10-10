@@ -1,0 +1,39 @@
+openmediavault-webtop (8.0.1) stable; urgency=medium
+
+  * Default PGID changed from 1000 to 100 (the OMV 'users' group).
+    OMV shared folders are owned by root:users with mode 2775, so with
+    the previous default the desktop could not write to the data folder
+    ('/nas') because its group was not a member of 'users'. The '/config'
+    folder was unaffected because the image chowns it to PUID:PGID.
+    Existing installations keep their stored value; set PGID to 100 in
+    the settings form to fix an affected setup.
+
+ -- ${GITHUB_USER} <${GITHUB_USER}@users.noreply.github.com>  Sat, 11 Oct 2026 12:00:00 +0800
+
+openmediavault-webtop (8.0.0) stable; urgency=medium
+
+  * Initial release: Webtop plugin for OpenMediaVault 8.x.
+    - Settings: image tag, HTTP and HTTPS ports, timezone, the config
+      shared folder (mounted at /config) and an optional data shared
+      folder (mounted at /nas), the web login user and password, the
+      page title and the PUID/PGID.
+    - The Docker Compose stack is registered in the
+      openmediavault-compose plugin on save (Compose.setFile), so it
+      follows the Compose plugin conventions (<compose shared
+      folder>/webtop/) and shows up in the Compose web UI (Services ->
+      Compose -> Files / Services) where it can also be inspected,
+      edited, started and stopped. The plugin does not render the
+      stack files itself.
+    - The config and data folders are referenced through the Compose
+      placeholder '${{ sf:"<name>" }}', so a changed shared folder path
+      is resolved by the Compose plugin on deploy.
+    - Start/Stop/Restart/Upgrade run as background tasks (through the
+      Compose plugin helper omv-compose-run) with live output.
+    - Live status: container state, the resolved stack file location,
+      log viewer and rendered compose file preview, plus a button to
+      open the web desktop over HTTPS.
+    - The container is never modified; the desktop and its
+      applications are managed from within the Webtop web interface.
+    - Simplified and Traditional Chinese translations included.
+
+ -- ${GITHUB_USER} <${GITHUB_USER}@users.noreply.github.com>  Wed, 08 Oct 2026 12:00:00 +0800

@@ -1,0 +1,11 @@
+version: "1.0"
+type: navigation-item
+data:
+  path: "services.webtop.settings"
+  text: _("Settings")
+  position: 10
+  icon: "tune"
+  url: "/services/webtop/settings"
+  permissions:
+    role:
+    - admin
