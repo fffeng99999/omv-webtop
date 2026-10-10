@@ -126,6 +126,14 @@ data:
         value: "Webtop"
 
       - type: divider
+        title: _("Hardware acceleration")
+      - type: checkbox
+        name: gpuAccel
+        label: _("Enable hardware acceleration (GPU)")
+        hint: _("Pass the host GPU device (/dev/dri) into the container and let Webtop use it (Intel/AMD VAAPI or NVIDIA) for zero-copy hardware video encoding, which greatly reduces CPU usage. Requires a GPU exposed on the host as /dev/dri; leave disabled when the host has no usable GPU (the desktop then falls back to software encoding).")
+        value: false
+
+      - type: divider
         title: _("Advanced")
       - type: numberInput
         name: puid

@@ -72,6 +72,10 @@
 		"pgid": {
 			"type": "integer",
 			"default": 100
+		},
+		"gpuAccel": {
+			"type": "boolean",
+			"default": false
 		}
 	}
 }

@@ -122,6 +122,15 @@ msgstr "頁面標題"
 msgid "Title shown in the browser tab and in the desktop (TITLE)."
 msgstr "顯示在瀏覽器分頁與桌面上的標題（TITLE）。"
 
+msgid "Hardware acceleration"
+msgstr "硬體加速"
+
+msgid "Enable hardware acceleration (GPU)"
+msgstr "啟用硬體加速（GPU）"
+
+msgid "Pass the host GPU device (/dev/dri) into the container and let Webtop use it (Intel/AMD VAAPI or NVIDIA) for zero-copy hardware video encoding, which greatly reduces CPU usage. Requires a GPU exposed on the host as /dev/dri; leave disabled when the host has no usable GPU (the desktop then falls back to software encoding)."
+msgstr "將宿主機的 GPU 裝置（/dev/dri）傳入容器，讓 Webtop 使用它（Intel/AMD VAAPI 或 NVIDIA）進行零拷貝硬體視訊編碼，可大幅降低 CPU 使用率。需要宿主機以 /dev/dri 形式暴露 GPU；宿主機沒有可用 GPU 時請勿開啟（此時桌面會退回軟體編碼）。"
+
 msgid "Advanced"
 msgstr "進階"
 

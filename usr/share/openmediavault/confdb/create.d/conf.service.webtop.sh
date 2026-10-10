@@ -49,6 +49,7 @@ if ! omv_config_exists "/config/services/webtop"; then
 	omv_config_add_key "/config/services/webtop" "title" "Webtop"
 	omv_config_add_key "/config/services/webtop" "puid" "1000"
 	omv_config_add_key "/config/services/webtop" "pgid" "100"
+	omv_config_add_key "/config/services/webtop" "gpuAccel" "0"
 fi
 
 exit 0

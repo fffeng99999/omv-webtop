@@ -59,7 +59,7 @@ class OMVRpcServiceWebtop extends \OMV\Rpc\ServiceAbstract
     private $settingsFields = [
         "enable", "version", "httpPort", "httpsPort", "timeZone",
         "configRef", "sourceRef", "customUser", "password", "title",
-        "puid", "pgid"
+        "puid", "pgid", "gpuAccel"
     ];
 
     public function getName()
@@ -194,7 +194,8 @@ class OMVRpcServiceWebtop extends \OMV\Rpc\ServiceAbstract
             "name" => self::STACK_NAME,
             "description" => "Webtop (managed by the openmediavault-webtop ".
                 "plugin)",
-            "body" => $this->buildComposeBody($configName, $sourceName),
+            "body" => $this->buildComposeBody($configName, $sourceName,
+                !empty($config["gpuAccel"])),
             "showenv" => true,
             "env" => $this->buildComposeEnv($config),
             "showoverride" => false,
@@ -267,9 +268,12 @@ class OMVRpcServiceWebtop extends \OMV\Rpc\ServiceAbstract
      * markers so the nowdoc can stay verbatim. The data folder is
      * optional: when it is not selected the /nas mount is omitted
      * entirely (the Compose placeholder cannot resolve an empty name).
+     * When $gpu is set the host GPU device (/dev/dri) is passed into the
+     * container and AUTO_GPU is enabled so Webtop can use hardware
+     * (zero-copy) H.264 encoding.
      */
     private function buildComposeBody(string $configName,
-        string $sourceName): string
+        string $sourceName, bool $gpu): string
     {
         $body = <<<'YAML'
 name: webtop
@@ -294,6 +298,21 @@ services:
     shm_size: "1gb"
     restart: unless-stopped
 YAML;
+        if ($gpu) {
+            $body = str_replace(
+                '      - TITLE=${WEBTOP_TITLE}',
+                '      - TITLE=${WEBTOP_TITLE}'.PHP_EOL.
+                '      - AUTO_GPU=true',
+                $body
+            );
+            $body = str_replace(
+                '    volumes:',
+                '    devices:'.PHP_EOL.
+                '      - /dev/dri:/dev/dri'.PHP_EOL.
+                '    volumes:',
+                $body
+            );
+        }
         $sourceVolume = ("" !== $sourceName)
             ? '      - ${{ sf:"%%SOURCE%%" }}:/nas'
             : "";

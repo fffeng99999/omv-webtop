@@ -123,6 +123,15 @@ msgstr ""
 msgid "Title shown in the browser tab and in the desktop (TITLE)."
 msgstr ""
 
+msgid "Hardware acceleration"
+msgstr ""
+
+msgid "Enable hardware acceleration (GPU)"
+msgstr ""
+
+msgid "Pass the host GPU device (/dev/dri) into the container and let Webtop use it (Intel/AMD VAAPI or NVIDIA) for zero-copy hardware video encoding, which greatly reduces CPU usage. Requires a GPU exposed on the host as /dev/dri; leave disabled when the host has no usable GPU (the desktop then falls back to software encoding)."
+msgstr ""
+
 msgid "Advanced"
 msgstr ""
 
